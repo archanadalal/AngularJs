@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.js"></script>
+<script>
+var myapp=angular.module('myapp',[]);
+myapp.controller('mycontroller',function($scope){
+$scope.name="Aishley";
+$scope.lastname="Patel";
+})
+</script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="mycontroller">
+First name is :  {{name}} <br/>Last name is : {{lastname}}
+ 
+
+</div>
+
+
+
+</body>
+</html>
