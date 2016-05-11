@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	table {
+	border-collapse:collapse;
+	
+	}
+	td {
+		border:1px solid black;
+		padding:5px;
+	}
+
+	th {
+		border: 1px solid black;
+		text-align:left;
+		padding:5px;
+	}
+
+</style>
+<script src="angular.js"></script>
+<script>
+var myapp=angular.module('myapp',[]);
+myapp.controller('mycontroller',function($scope){
+
+var employees =[
+{id:659,name:"Archana", dateOfBirth: new Date("April 08, 1987"), gender:"Female",salary:55000.7654},
+{id:343,name:"Pooja", dateOfBirth: new Date("May 24, 1983"), gender:"Female",salary:85000.1111},
+{id:213,name:"Rahul", dateOfBirth: new Date("August 26, 1976"), gender:"Male",salary:95000.7654},
+{id:267,name:"Venkat", dateOfBirth: new Date("November 23, 1991"), gender:"Male",salary:55000.7654},
+{id:129,name:"Nitin", dateOfBirth: new Date("January 26, 1974"), gender:"Male",salary:55000.7654},
+
+]
+$scope.employees = employees;
+
+})
+
+</script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="mycontroller">
+	<table>
+		<thead>
+		<tr>
+			<th>Emp-Id</th>
+			<th>Emp-Name</th>
+			<th>Date Of Birth</th>
+			<th>Gender</th>
+			<th>Salary</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="employee in employees">
+			<td>{{employee.id}}</td>
+			<td>{{employee.name |uppercase}}</td>
+			<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+			<td>{{employee.gender |lowercase}}</td>
+			<td>{{employee.salary |number :"2" }}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
